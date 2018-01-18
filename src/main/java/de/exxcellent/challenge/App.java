@@ -3,10 +3,13 @@ package de.exxcellent.challenge;
 import java.util.List;
 
 /**
- * The entry class for your solution. This class is only aimed as starting point and not intended as baseline for your software
- * design. Read: create your own classes and packages as appropriate.
- *
- * @author Benjamin Schmid <benjamin.schmid@exxcellent.de>
+ * This class 
+ * - specifies the path of the CSV files
+ * - initializes two 2-dimensional ArrayLists for the weather and football data using the method CSVFileToArray in class DataFile
+ * - initializes two Strings with the results of the weather and football challenge using the method FindSmallestSpread in class DataFile
+ * - prints the results
+ * 
+ * @author tobiasvienenkotter
  */
 public final class App {
 
