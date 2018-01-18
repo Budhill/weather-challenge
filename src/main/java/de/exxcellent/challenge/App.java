@@ -22,10 +22,12 @@ public final class App {
 		// store data of CSV file into array
 		List<List<String>> weatherData = DataFile.CSVFileToArray(filePath + weatherFile);
 		List<List<String>> footballData = DataFile.CSVFileToArray(filePath + footballFile);
+		
+        // data analysis function call
+        String dayWithSmallestTempSpread = DataFile.FindSmallestSpread(weatherData,"MxT","MnT");
+        String teamWithSmallesGoalSpread = DataFile.FindSmallestSpread(footballData,"Goals","Goals Allowed");
 
-        String dayWithSmallestTempSpread = "Someday";     // Your day analysis function call …
-        String teamWithSmallesGoalSpread = "A good team"; // Your goal analysis function call …
-
+        // print result of data analysis 
         System.out.printf("Day with smallest temperature spread : %s%n", dayWithSmallestTempSpread);
         System.out.printf("Team with smallest goal spread       : %s%n", teamWithSmallesGoalSpread);
     }
