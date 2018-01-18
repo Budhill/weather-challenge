@@ -7,6 +7,13 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * This class includes the methods for the CSV file to
+ * - store the data from the CSV to an 2-dimensional ArrayList
+ * - find the smallest spread between maximum and minimum values, comparing each line of the data
+ * - calculate the difference between a given maximum and minimum value
+ * - return the column index of a given string in the first line of the 2-dim. ArrayList
+ */
 public class DataFile {
 	
 	/**
