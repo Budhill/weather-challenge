@@ -17,7 +17,7 @@ public class DataFile {
 	 * @param fileLocation	-	path at which file is located
 	 * @return dataList		-	2-dim. ArrayList with data from CSV file
 	 */
-	public static List<List<String>> csvFileToArray (String fileLocation) {
+	public static List<List<String>> CSVFileToArray (String fileLocation) {
 		
 		// 2-dimensional ArrayList of strings for data
 		List<List<String>> dataList = new ArrayList<>();
