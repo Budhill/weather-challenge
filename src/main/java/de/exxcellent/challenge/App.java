@@ -10,7 +10,12 @@ public final class App {
 
     public static void main(String... args) {
 
-        // Your preparation code …
+    		// location of resources
+		String filePath = "src/main/resources/de/exxcellent/challenge/";
+		
+		// name of CSV Files
+		String weatherFile = "weather.csv"; //ToDo: use real file path
+		String footballFile = "football.csv"; //ToDo: use real file path
 
         String dayWithSmallestTempSpread = "Someday";     // Your day analysis function call …
         String teamWithSmallesGoalSpread = "A good team"; // Your goal analysis function call …
