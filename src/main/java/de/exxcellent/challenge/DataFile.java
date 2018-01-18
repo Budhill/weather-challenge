@@ -46,7 +46,54 @@ public class DataFile {
 		}		
 		return dataList;
 	}
-
+	
+	/**
+	 * This method finds the line in which the smallest spread between given maximum and minimum value is located in.
+	 * It iterates through the 2-dimensional ArrayList and compares the corresponding spread values. The method 
+	 * returns the first item of the line which contains the smallest spread value, where the identifying label for 
+	 * each line is located.
+	 * 
+	 * @param dataList				-	2-dim. ArrayList with data from CSV file
+	 * @param maxValue				-	String that specifies the column of the maximum values
+	 * @param minValue				-	String that specifies the column of the minimum values
+	 * @return smallestSpreadLabel	-	String located in the line corresponding to the smallest spread value
+	 */
+	public static String FindSmallestSpread (List<List<String>> dataList, String maxValue, String minValue) {
+		
+		// get column index of maximum value
+		int maxValueIndex = GetColumnIndexOfString(dataList, maxValue);
+		// get column index of minimum value
+		int minValueIndex = GetColumnIndexOfString(dataList, minValue);
+		
+		// in case searchString for maximum value was not found
+		if(maxValueIndex < 0) { 
+			String error= "ERROR: '" + maxValue + "' was not found.";
+			return error;
+		// in case searchString for minimum value was not found
+		} else if(minValueIndex < 0){
+			String error= "ERROR: '" + minValue + "' was not found.";
+			return error;
+		}else {
+			// set item in the line with index 1 to result
+			double smallestSpread = MaxMinDiff(dataList.get(1).get(maxValueIndex),dataList.get(1).get(minValueIndex));
+			int smallestSpreadIndex = 1;
+			
+			// iteration through the rest of the 2-dim. ArrayList, line by line
+			for(int i = 2; i < dataList.size(); i++) {
+				// get difference between max and min value of current line with index i
+				double tmp = MaxMinDiff(dataList.get(i).get(maxValueIndex),dataList.get(i).get(minValueIndex));
+				// compare current spread value with smallest spread value and store smaller value
+				if(tmp < smallestSpread && tmp >= 0){
+					smallestSpread = tmp;
+					smallestSpreadIndex = i;
+				}
+			}
+			// return value in winner line and column 0 as String
+			String smallestSpreadLabel = dataList.get(smallestSpreadIndex).get(0);
+			return smallestSpreadLabel;
+		}
+	}
+	
 	/**
 	 * Calculates the difference between a given maximum and minimum value. The maximum and minimum
 	 * values are given as strings and casted to double, whereas the result of the calculation is
